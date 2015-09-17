@@ -90,8 +90,18 @@ static PyMethodDef methods[] = {
     {NULL, NULL, 0, NULL}
 };
 
-PyMODINIT_FUNC
-initspamsum()
+
+static struct PyModuleDef cSpamSumModule =
 {
-    (void) Py_InitModule("spamsum", methods);
+	PyModuleDef_HEAD_INIT,
+	"spamsum",
+	"",
+	-1,
+	methods
+};
+
+PyMODINIT_FUNC
+PyInit_spamsum(void)
+{
+    return PyModule_Create(&cSpamSumModule);
 }
